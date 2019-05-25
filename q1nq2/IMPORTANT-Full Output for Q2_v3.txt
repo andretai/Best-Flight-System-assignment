@@ -1,0 +1,183 @@
+C:\Users\USER\PycharmProjects\BestFlight_v2\venv\Scripts\python.exe C:/Users/USER/PycharmProjects/BestFlight_v2/Q2_v3.py
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Kuala Lumpur International Airport and Incheon International Airport: 4601.031062381801 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Kuala Lumpur International Airport and Osaka International Airport: 4974.503990454021 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Kuala Lumpur International Airport and Melbourne Airport: 6305.316172669655 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Kuala Lumpur International Airport and Shanghai Pudong International Airport: 3786.667008728497 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Kuala Lumpur International Airport and Soekarno-Hatta International Airport: 1125.1541127167927 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Kuala Lumpur International Airport and Changi Airport Singapore: 297.14415385300913 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Kuala Lumpur International Airport and John F. Kennedy International Airport: 15177.701699609464 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Kuala Lumpur International Airport and Manchester Airport: 10686.576109693695 KM
+Origin: Kuala Lumpur International Airport(2.74552395, 101.701506799265)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Kuala Lumpur International Airport and Madrid Barajas Airport: 11098.027253284916 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Incheon International Airport and Kuala Lumpur International Airport: 4601.031062381801 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Incheon International Airport and Osaka International Airport: 862.4426167314115 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Incheon International Airport and Melbourne Airport: 8530.796176678405 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Incheon International Airport and Shanghai Pudong International Airport: 820.8336982644468 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Incheon International Airport and Soekarno-Hatta International Airport: 5244.592055185617 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Incheon International Airport and Changi Airport Singapore: 4613.074700672272 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Incheon International Airport and John F. Kennedy International Airport: 11113.974372003622 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Incheon International Airport and Manchester Airport: 8801.761788308391 KM
+Origin: Incheon International Airport(37.4643856, 126.441055189731)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Incheon International Airport and Madrid Barajas Airport: 9986.855639665042 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Osaka International Airport and Kuala Lumpur International Airport: 4974.503990454021 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Osaka International Airport and Incheon International Airport: 862.4426167314115 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Osaka International Airport and Melbourne Airport: 8079.787362288371 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Osaka International Airport and Shanghai Pudong International Airport: 1335.884933545082 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Osaka International Airport and Soekarno-Hatta International Airport: 5443.442471591339 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Osaka International Airport and Changi Airport Singapore: 4932.597005168741 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Osaka International Airport and John F. Kennedy International Airport: 11134.895247014285 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Osaka International Airport and Manchester Airport: 9424.539426166031 KM
+Origin: Osaka International Airport(34.7839847, 135.439040728061)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Osaka International Airport and Madrid Barajas Airport: 10675.559768851072 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Melbourne Airport and Kuala Lumpur International Airport: 6305.316172669655 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Melbourne Airport and Incheon International Airport: 8530.796176678405 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Melbourne Airport and Osaka International Airport: 8079.787362288371 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Melbourne Airport and Shanghai Pudong International Airport: 7984.781298076547 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Melbourne Airport and Soekarno-Hatta International Airport: 5204.400275224223 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Melbourne Airport and Changi Airport Singapore: 6023.967752322345 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Melbourne Airport and John F. Kennedy International Airport: 16695.96158652998 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Melbourne Airport and Manchester Airport: 16951.722793428 KM
+Origin: Melbourne Airport(-37.667111, 144.83354844353)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Melbourne Airport and Madrid Barajas Airport: 17286.478867297417 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Shanghai Pudong International Airport and Kuala Lumpur International Airport: 3786.667008728497 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Shanghai Pudong International Airport and Incheon International Airport: 820.8336982644468 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Shanghai Pudong International Airport and Osaka International Airport: 1335.884933545082 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Shanghai Pudong International Airport and Melbourne Airport: 7984.781298076547 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Shanghai Pudong International Airport and Soekarno-Hatta International Airport: 4427.758583138556 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Shanghai Pudong International Airport and Changi Airport Singapore: 3793.2326856975046 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Shanghai Pudong International Airport and John F. Kennedy International Airport: 11896.922024538524 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Shanghai Pudong International Airport and Manchester Airport: 9206.859161392575 KM
+Origin: Shanghai Pudong International Airport(31.14045585, 121.80501881597)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Shanghai Pudong International Airport and Madrid Barajas Airport: 10290.628613735098 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Soekarno-Hatta International Airport and Kuala Lumpur International Airport: 1125.1541127167927 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Soekarno-Hatta International Airport and Incheon International Airport: 5244.592055185617 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Soekarno-Hatta International Airport and Osaka International Airport: 5443.442471591339 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Soekarno-Hatta International Airport and Melbourne Airport: 5204.400275224223 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Soekarno-Hatta International Airport and Shanghai Pudong International Airport: 4427.758583138556 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Soekarno-Hatta International Airport and Changi Airport Singapore: 879.0654447562076 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Soekarno-Hatta International Airport and John F. Kennedy International Airport: 16180.086224651635 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Soekarno-Hatta International Airport and Manchester Airport: 11804.573535186235 KM
+Origin: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Soekarno-Hatta International Airport and Madrid Barajas Airport: 12160.459419703626 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Changi Airport Singapore and Kuala Lumpur International Airport: 297.14415385300913 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Changi Airport Singapore and Incheon International Airport: 4613.074700672272 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Changi Airport Singapore and Osaka International Airport: 4932.597005168741 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Changi Airport Singapore and Melbourne Airport: 6023.967752322345 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Changi Airport Singapore and Shanghai Pudong International Airport: 3793.2326856975046 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Changi Airport Singapore and Soekarno-Hatta International Airport: 879.0654447562076 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Changi Airport Singapore and John F. Kennedy International Airport: 15347.470113165633 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Changi Airport Singapore and Manchester Airport: 10959.455236256 KM
+Origin: Changi Airport Singapore(1.3573382, 103.9885647)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Changi Airport Singapore and Madrid Barajas Airport: 11389.87311602506 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between John F. Kennedy International Airport and Kuala Lumpur International Airport: 15177.701699609464 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between John F. Kennedy International Airport and Incheon International Airport: 11113.974372003622 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between John F. Kennedy International Airport and Osaka International Airport: 11134.895247014285 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between John F. Kennedy International Airport and Melbourne Airport: 16695.96158652998 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between John F. Kennedy International Airport and Shanghai Pudong International Airport: 11896.922024538524 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between John F. Kennedy International Airport and Soekarno-Hatta International Airport: 16180.086224651635 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between John F. Kennedy International Airport and Changi Airport Singapore: 15347.470113165633 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between John F. Kennedy International Airport and Manchester Airport: 5375.947899644216 KM
+Origin: John F. Kennedy International Airport(40.6429479, -73.7793733748521)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between John F. Kennedy International Airport and Madrid Barajas Airport: 5774.707320934676 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Manchester Airport and Kuala Lumpur International Airport: 10686.576109693695 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Manchester Airport and Incheon International Airport: 8801.761788308391 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Manchester Airport and Osaka International Airport: 9424.539426166031 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Manchester Airport and Melbourne Airport: 16951.722793428 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Manchester Airport and Shanghai Pudong International Airport: 9206.859161392575 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Manchester Airport and Soekarno-Hatta International Airport: 11804.573535186235 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Manchester Airport and Changi Airport Singapore: 10959.455236256 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Manchester Airport and John F. Kennedy International Airport: 5375.947899644216 KM
+Origin: Manchester Airport(53.35034205, -2.28036831606314)Dest: Madrid Barajas Airport(40.4948384, -3.57408062068113)
+Distance between Manchester Airport and Madrid Barajas Airport: 1432.4637485411668 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Kuala Lumpur International Airport(2.74552395, 101.701506799265)
+Distance between Madrid Barajas Airport and Kuala Lumpur International Airport: 11098.027253284916 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Incheon International Airport(37.4643856, 126.441055189731)
+Distance between Madrid Barajas Airport and Incheon International Airport: 9986.855639665042 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Osaka International Airport(34.7839847, 135.439040728061)
+Distance between Madrid Barajas Airport and Osaka International Airport: 10675.559768851072 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Melbourne Airport(-37.667111, 144.83354844353)
+Distance between Madrid Barajas Airport and Melbourne Airport: 17286.478867297417 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Shanghai Pudong International Airport(31.14045585, 121.80501881597)
+Distance between Madrid Barajas Airport and Shanghai Pudong International Airport: 10290.628613735098 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Soekarno-Hatta International Airport(-6.12528435, 106.659799227652)
+Distance between Madrid Barajas Airport and Soekarno-Hatta International Airport: 12160.459419703626 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Changi Airport Singapore(1.3573382, 103.9885647)
+Distance between Madrid Barajas Airport and Changi Airport Singapore: 11389.87311602506 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: John F. Kennedy International Airport(40.6429479, -73.7793733748521)
+Distance between Madrid Barajas Airport and John F. Kennedy International Airport: 5774.707320934676 KM
+Origin: Madrid Barajas Airport(40.4948384, -3.57408062068113)Dest: Manchester Airport(53.35034205, -2.28036831606314)
+Distance between Madrid Barajas Airport and Manchester Airport: 1432.4637485411668 KM
+
+Process finished with exit code 0
