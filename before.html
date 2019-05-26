@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Post implementation</title>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false&key=AIzaSyAGADiifvUELmMdOfy-UKlHPxNI6rrJUFE"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // If the browser supports the Geolocation API
+        if (typeof navigator.geolocation == "undefined") {
+          $("#error").text("Your browser doesn't support the Geolocation API");
+          return;
+        }
+        // Save the positions' history
+        var path = [];
+
+        // Create the map
+        var myOptions = {
+          zoom : 16,
+          center : path[0],
+          mapTypeId : google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+      /*
+        var graph = [
+        /*
+        `AB4601`,
+        'AC4974',
+        'AD6305',
+        'AE3786',
+        'AF1125',
+        `AG297`,
+        'AH15177',
+        'AI10686',
+        'AJ4601',
+        'EB820',
+        'EJ10290',
+        'EI9206',
+        'BC862',
+        'DF5204',
+        'FG879',
+        'JE10290',
+        'JH5774',
+        'IE9206',
+        'IH5375',
+        'GD200'
+        
+        'AB6',
+        'AC3',
+        'BD6',
+        'CD5',
+        'CE9',
+        'DF8',
+        'DE3',
+        'EG8',
+        'FG2'
+      ];
+      
+      var parseEdge = (edge) => {
+        var [left, right, ...cost] = edge;
+        cost = parseInt(cost.join(''), 10);
+        return { left, right, cost };
+      };
+      
+      var addToMap = (map, origin, vertex, cost) => {
+        (map[origin] = map[origin] || [])
+          .push({ vertex, cost });
+      };
+      
+      var graphToMap = (graph) => {
+        var map = {};
+      
+        for (var edge of graph) {
+          var { left, right, cost } = parseEdge(edge);
+      
+          addToMap(map, left, right, cost);
+          addToMap(map, right, left, cost);
+        }
+      
+        return map;
+      };
+      
+      var tableToString = (table) => {
+        return Object.keys(table)
+          .map(vertex => {
+            var { vertex: from, cost } = table[vertex];
+            return `${vertex}: ${cost} via ${from}`;
+          })
+          .join('\n');
+      };
+      
+      var tracePath = (table, start, end) => {
+        var path = [];
+        var next = end;
+        while (true) {
+          path.unshift(next);
+          if (next === start) { break; }
+          next = table[next].vertex;
+        }
+      
+        return path;
+      };
+      
+      var run = (graph, start, end) => {
+        var map = graphToMap(graph);
+      
+        // console.log(map);
+      
+        var visited = [];
+        var frontier = [start];
+        var table = { [start]: { vertex: start, cost: 0 } };
+      
+        var vertex;
+        while (vertex = frontier.shift()) {
+          // Explore unvisited neighbors
+          var neighbors = map[vertex]
+            .filter(n => !visited.includes(n.vertex));
+      
+          // Add neighbors to the frontier
+          frontier.push(...neighbors.map(n => n.vertex));
+      
+          var costToVertex = table[vertex].cost;
+      
+          for (let { vertex: to, cost } of neighbors) {
+            var currCostToNeighbor = table[to] && table[to].cost;
+            var newCostToNeighbor = costToVertex + cost;
+            if (currCostToNeighbor == undefined ||
+                newCostToNeighbor < currCostToNeighbor) {
+              // Update the table
+              table[to] = { vertex, cost: newCostToNeighbor };
+            }
+          }
+      
+          visited.push(vertex);
+        }
+      
+        // console.log(table);
+      
+        console.log('Here you go:');
+        console.log(tableToString(table));
+      
+        var path1 = tracePath(table, start, end);
+        
+        for(var i=0; i<path1.length; i++){
+          switch(path1[i]){
+            case 'A': path1[i] = 'KUL'; break;
+            case 'B': path1[i] = 'ICN'; break;
+            case 'C': path1[i] = 'ITM'; break;
+            case 'D': path1[i] = 'MEL'; break;
+            case 'E': path1[i] = 'SHA'; break;
+            case 'F': path1[i] = 'CGK'; break;
+            case 'G': path1[i] = 'SIN'; break;
+            case 'H': path1[i] = 'JFK'; break;
+            case 'I': path1[i] = 'MAN'; break;
+            case 'J': path1[i] = 'MAD'; break;
+          }
+        };
+        window.alert(path1.join('->'));
+        //path.push(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+        for(var i=0; i<path1.length; i++){
+          switch(path1[i]){
+            case 'KUL': path.push(new google.maps.LatLng(2.745537, 101.707316)); break;
+            case 'ICN': path.push(new google.maps.LatLng(37.460353, 126.440674)); break;
+            case 'ITM': path.push(new google.maps.LatLng(34.789594, 135.438084)); break;
+            case 'MEL': path.push(new google.maps.LatLng(-37.665357, 144.840642)); break;
+            case 'SHA': path.push(new google.maps.LatLng(31.144990, 121.808304)); break;
+            case 'CGK': path.push(new google.maps.LatLng(-6.127211, 106.653684)); break;
+            case 'SIN': path.push(new google.maps.LatLng(1.364860, 103.991594)); break;
+            case 'JFK': path.push(new google.maps.LatLng(40.760284, -73.772304)); break;
+            case 'MAN': path.push(new google.maps.LatLng(53.358796, -2.272773)); break;
+            case 'MAD': path.push(new google.maps.LatLng(40.498275, -3.567727)); break;
+          }
+        }
+        
+      };
+      run(graph, 'A', 'G');
+      */
+      path.push(new google.maps.LatLng(2.745537, 101.707316));
+      path.push(new google.maps.LatLng(37.460353, 126.440674));
+      path.push(new google.maps.LatLng(34.789594, 135.438084));
+      path.push(new google.maps.LatLng(-37.665357, 144.840642));
+      path.push(new google.maps.LatLng(31.144990, 121.808304));
+      path.push(new google.maps.LatLng(-6.127211, 106.653684));
+      path.push(new google.maps.LatLng(1.364860, 103.991594));
+      path.push(new google.maps.LatLng(40.760284, -73.772304));
+      path.push(new google.maps.LatLng(53.358796, -2.272773));
+      path.push(new google.maps.LatLng(40.498275, -3.567727));
+      
+        // Create the array that will be used to fit the view to the points range and
+        // place the markers to the polyline's points
+        var latLngBounds = new google.maps.LatLngBounds();
+        for(var i = 0; i < path.length; i++) {
+          latLngBounds.extend(path[i]);
+          // Place the marker
+          new google.maps.Marker({
+            map: map,
+            position: path[i],
+            title: "Point " + (i + 1)
+          });
+        }
+        // Creates the polyline object
+        var polyline = new google.maps.Polyline({
+          map: map,
+          path: path,
+          strokeColor: '#0000FF',
+          strokeOpacity: 0.7,
+          strokeWeight: 2,
+        });
+        // Fit the bounds of the generated points
+        map.fitBounds(latLngBounds);
+      },
+      function(positionError){
+        $("#error").append("Error: " + positionError.message + "<br />");
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10 * 1000 // 10 seconds
+      });
+
+      
+    </script>
+    <style type="text/css">
+      #map {
+        width: 1250px;
+        height: 600px;
+        margin-top: 10px;
+        margin-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Map after implementing the algorithm</h1>
+    <div id="map"></div>
+    <p id="error"></p>
+    <p id="shortpath"></p>
+  </body>
+</html>
