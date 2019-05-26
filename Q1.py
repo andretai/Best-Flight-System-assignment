@@ -14,9 +14,9 @@
 # import gmplot package
 import gmplot
 
-#Kuala Lumpur, South Korea, Osaka, Melbourne, ShangHai,  Jakarta, Singapore, New York, Manchester, Madrid
-latitude_list=[2.745537,37.460353,34.789594,-37.665357,31.144990,-6.127211,1.364860,40.760284,53.358796,40.498275]
-longitude_list=[101.707316,126.440674,135.438084,144.840642,121.808304,106.653684,103.991594,-73.772304,-2.272773,-3.567727]
+#Kuala Lumpur, Incheon, Osaka, Melbourne, Moscow, Beijing, Jakarta, Singapore, New York, Manchester, Madrid
+latitude_list = [2.745537, 37.460353, 34.789594, -37.665357, 55.410343, 40.085148, -6.127211, 1.364860, 40.760284, 53.358796, 40.498275]
+longitude_list = [101.707316, 126.440674, 135.438084, 144.840642, 37.902312, 116.552407, 106.653684, 103.991594, -73.772304, -2.272773, -3.567727]
 
 gmap3 = gmplot.GoogleMapPlotter(2.745537, 101.707316, 13)
 
