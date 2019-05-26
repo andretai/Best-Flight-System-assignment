@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Create a polyline using Geolocation and Google Maps API</title>
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false&key=AIzaSyAGADiifvUELmMdOfy-UKlHPxNI6rrJUFE"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyAGADiifvUELmMdOfy-UKlHPxNI6rrJUFE"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
       $(document).ready(function() {
@@ -21,7 +21,7 @@
 
           // Create the map
           var myOptions = {
-            zoom : 16,
+            zoom : 3,
             center : path[0],
             mapTypeId : google.maps.MapTypeId.ROADMAP
           }
@@ -41,16 +41,17 @@
           }
           */
 
-          path.push(new google.maps.LatLng(2.745537, 101.707316));
-            path.push(new google.maps.LatLng(37.460353, 126.440674));
-            path.push(new google.maps.LatLng(34.789594, 135.438084));
-            path.push(new google.maps.LatLng(-37.665357, 144.840642));
-            path.push(new google.maps.LatLng(31.144990, 121.808304));
-            path.push(new google.maps.LatLng(-6.127211, 106.653684));
-            path.push(new google.maps.LatLng(1.364860, 103.991594));
-            path.push(new google.maps.LatLng(40.760284, -73.772304));
-            path.push(new google.maps.LatLng(53.358796, -2.272773));
-            path.push(new google.maps.LatLng(40.498275, -3.567727));
+            path.push(new google.maps.LatLng(2.745537, 101.707316)); //mas
+            path.push(new google.maps.LatLng(37.460353, 126.440674)); //kor
+            path.push(new google.maps.LatLng(34.789594, 135.438084)); //jpn
+            path.push(new google.maps.LatLng(-37.665357, 144.840642)); //aus
+            path.push(new google.maps.LatLng(55.410343, 37.902312)); //rus
+            path.push(new google.maps.LatLng(40.085148, 116.552407)); //chi
+            path.push(new google.maps.LatLng(-6.127211, 106.653684)); //ind
+            path.push(new google.maps.LatLng(1.364860, 103.991594)); //sin
+            path.push(new google.maps.LatLng(40.760284, -73.772304)); //usa
+            path.push(new google.maps.LatLng(53.358796, -2.272773)); //uk
+            path.push(new google.maps.LatLng(40.498275, -3.567727)); //spa
 
           // Create the array that will be used to fit the view to the points range and
           // place the markers to the polyline's points
@@ -64,16 +65,53 @@
               title: "Point " + (i + 1)
             });
           }
+          var coordinates = [
+            //mas
+            {lat:2.745537, lng:101.707316}, {lat:37.460353,lng:126.440674}, //to kor
+            {lat:2.745537, lng:101.707316}, {lat:34.789594,lng:135.438084}, //to jpn
+            {lat:2.745537, lng:101.707316}, {lat:-37.665357,lng:144.840642}, //to aus
+            {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //to chi
+            {lat:2.745537, lng:101.707316}, {lat:-6.127211,lng:106.653684}, //to ind
+            {lat:2.745537, lng:101.707316}, {lat:1.364860,lng:103.991594}, //to sin
+            {lat:2.745537, lng:101.707316}, {lat:40.498275,lng:-3.567727}, //to spa
+            
+            //kor
+            {lat:37.460353, lng:126.440674}, {lat:34.789594,lng:135.438084}, //to jpn
+            {lat:37.460353, lng:126.440674}, {lat:55.410343,lng:37.902312}, //to rus
+            {lat:37.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //to chi
+            /*
+            //jpn
+            {lat:34.789594,lng:135.438084}, {lat:55.410343,lng:37.902312}, //to rus
+            //aus
+            {lat:-37.665357,lng:144.840642}, {lat:-6.127211,lng:106.653684}, //to ind
+            //rus
+            {lat:55.410343,lng:37.902312}, {lat:40.085148,lng:116.552407}, //to chi
+            {lat:55.410343,lng:37.902312}, {lat:53.358796,lng:-2.272773}, //to uk
+            {lat:55.410343,lng:37.902312}, {lat:40.498275,lng:-3.567727}, //to spa
+            //chi
+            {lat:40.085148,lng:116.552407}, {lat:53.358796,lng:-2.272773}, //to uk
+            {lat:40.085148,lng:116.552407}, {lat:40.498275,lng:-3.567727}, //to spa
+            //ind
+            {lat:-6.127211,lng:106.653684}, {lat:1.364860,lng:103.991594}, //to sin
+            //usa
+            {lat:40.760284,lng:-73.772304}, {lat:53.358796,lng:-2.272773}, //to uk
+            {lat:40.760284,lng:-73.772304}, {lat:40.498275,lng:-3.567727}, //to spa
+            //uk
+            {lat:53.358796,lng:-2.272773}, {lat:40.498275,lng:-3.567727}, //to spa
+            */
+          ];
           // Creates the polyline object
           var polyline = new google.maps.Polyline({
             map: map,
-            path: path,
+            path: coordinates,
             strokeColor: '#0000FF',
             strokeOpacity: 0.7,
-            strokeWeight: 1
+            strokeWeight: 1,
+            geodesic: true
           });
           // Fit the bounds of the generated points
-          map.fitBounds(latLngBounds);
+          //map.fitBounds(latLngBounds);
+          polyline.setMap(map);
         },
         function(positionError){
           $("#error").append("Error: " + positionError.message + "<br />");
