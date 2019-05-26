@@ -98,14 +98,22 @@ graph = Graph([
 print(graph.dijkstra("a", "e"))
 
 #Distance between cities graph
-cities = ["KUL", "ICN", "ITM", "MEL", "SHA", "CGK", "SIN", "JFK", "MAN", "MAD"]
+cities = ["KUL", "ICN", "ITM", "MEL", "SVO", "PEK", "CGK", "SIN", "JFK", "MAN", "MAD"]
 cityGraph = Graph([
-    (cities[0], cities[1],4601), (cities[0], cities[2],4974), (cities[0], cities[3],6305), (cities[0], cities[4],3786),
-    (cities[0], cities[5],1125), (cities[0], cities[6],297), (cities[0], cities[7],15177), (cities[0], cities[8],10686),
-    (cities[0], cities[9],4601), (cities[4], cities[1],820), (cities[4], cities[9],10290), (cities[4], cities[8],9206),
-    (cities[1], cities[2],862), (cities[3], cities[5],5204), (cities[5], cities[6],879), (cities[9], cities[4],10290),
-    (cities[9], cities[7],5774), (cities[8], cities[4],9206), (cities[8], cities[7],5375)
-
+    (cities[0], cities[10],11098), (cities[0], cities[5],3200), (cities[0], cities[1],4601), (cities[0], cities[2],4975),
+    (cities[0], cities[6],1125), (cities[0], cities[7],297), (cities[10], cities[5],9227), (cities[10], cities[4],3444),
+    (cities[10], cities[9],1432), (cities[10], cities[8],5775), (cities[5], cities[4],5000), (cities[5], cities[9],8115), (cities[5], cities[1],903),
+    (cities[1], cities[4],6598), (cities[1], cities[2],862), (cities[2], cities[4],7344), (cities[6], cities[3],5204),
+    (cities[6], cities[7],9879), (cities[4], cities[9],2585), (cities[9], cities[8],5376)
 ])
 
-print(cityGraph.dijkstra("KUL", "JFK"))
+print(cityGraph.dijkstra("KUL", "MAD"))
+
+
+# (cities[0], cities[1],4601), (cities[0], cities[2],4975), (cities[0], cities[3],6305), (cities[0], cities[4],8129),
+#     (cities[0], cities[5],4399), (cities[0], cities[6],1125), (cities[0], cities[7],297), (cities[0], cities[8],15178),
+#     (cities[0], cities[9],10687), (cities[0], cities[10],11098), (cities[1], cities[2],862), (cities[1], cities[4],6598), (cities[1], cities[5],903),
+#     (cities[2], cities[4],7344), (cities[3], cities[6],5204), (cities[3], cities[7],6024), (cities[4], cities[5],5801),
+#     (cities[4], cities[9],2585), (cities[4], cities[8],7566), (cities[4], cities[10],3444),(cities[5], cities[10],9227),
+#     (cities[6], cities[7],879), (cities[8], cities[9],5376), (cities[8], cities[10],5775),
+#     (cities[9], cities[10],1432)
