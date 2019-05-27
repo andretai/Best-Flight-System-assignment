@@ -52,48 +52,60 @@
             });
           }
           var coordinates = [
-            //mas
-            {lat:2.745537, lng:101.707316}, {lat:37.460353,lng:126.440674}, //to kor
-            {lat:2.745537, lng:101.707316}, {lat:34.789594,lng:135.438084}, //to jpn
-            {lat:2.745537, lng:101.707316}, {lat:-37.665357,lng:144.840642}, //to aus
-            {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //to chi
-            {lat:2.745537, lng:101.707316}, {lat:-6.127211,lng:106.653684}, //to ind
-            {lat:2.745537, lng:101.707316}, {lat:1.364860,lng:103.991594}, //to sin
-            {lat:2.745537, lng:101.707316}, {lat:40.498275,lng:-3.567727}, //to spa
-            /*
-            //kor
-            {lat:36.460353, lng:126.440674}, {lat:34.789594,lng:135.438084}, //to jpn
-            {lat:36.460353, lng:126.440674}, {lat:55.410343,lng:37.902312}, //to rus
-            {lat:36.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //to chi
-            //jpn
-            {lat:34.789594,lng:135.438084}, {lat:55.410343,lng:37.902312}, //to rus
-            //aus
-            {lat:-37.665357,lng:144.840642}, {lat:-6.127211,lng:106.653684}, //to ind
-            //rus
-            {lat:55.410343,lng:37.902312}, {lat:40.085148,lng:116.552407}, //to chi
-            {lat:55.410343,lng:37.902312}, {lat:53.358796,lng:-2.272773}, //to uk
-            {lat:55.410343,lng:37.902312}, {lat:40.498275,lng:-3.567727}, //to spa
-            //chi
-            {lat:40.085148,lng:116.552407}, {lat:53.358796,lng:-2.272773}, //to uk
-            {lat:40.085148,lng:116.552407}, {lat:40.498275,lng:-3.567727}, //to spa
-            //ind
-            {lat:-6.127211,lng:106.653684}, {lat:1.364860,lng:103.991594}, //to sin
-            //usa
-            {lat:40.760284,lng:-73.772304}, {lat:53.358796,lng:-2.272773}, //to uk
-            {lat:40.760284,lng:-73.772304}, {lat:40.498275,lng:-3.567727}, //to spa
-            //uk
-            {lat:53.358796,lng:-2.272773}, {lat:40.498275,lng:-3.567727}, //to spa
-            */
+            [
+              //mas
+              {lat:2.745537, lng:101.707316}, {lat:37.460353,lng:126.440674}, //to kor
+              {lat:2.745537, lng:101.707316}, {lat:34.789594,lng:135.438084}, //to jpn
+              {lat:2.745537, lng:101.707316}, {lat:-37.665357,lng:144.840642}, //to aus
+              {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //to chi
+              {lat:2.745537, lng:101.707316}, {lat:-6.127211,lng:106.653684}, //to ind
+              {lat:2.745537, lng:101.707316}, {lat:1.364860,lng:103.991594}, //to sin
+              {lat:2.745537, lng:101.707316}, {lat:40.498275,lng:-3.567727}, //to spa
+            ],[
+              //kor
+              {lat:36.460353, lng:126.440674}, {lat:34.789594,lng:135.438084}, //to jpn
+              {lat:36.460353, lng:126.440674}, {lat:55.410343,lng:37.902312}, //to rus
+              {lat:36.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //to chi
+            ],[
+              //jpn
+              {lat:34.789594,lng:135.438084}, {lat:55.410343,lng:37.902312}, //to rus
+            ],[
+              //aus
+              {lat:-37.665357,lng:144.840642}, {lat:-6.127211,lng:106.653684}, //to ind
+            ],[
+              //rus
+              {lat:55.410343,lng:37.902312}, {lat:40.085148,lng:116.552407}, //to chi
+              {lat:55.410343,lng:37.902312}, {lat:53.358796,lng:-2.272773}, //to uk
+              {lat:55.410343,lng:37.902312}, {lat:40.498275,lng:-3.567727}, //to spa
+            ],[
+              //chi
+              {lat:40.085148,lng:116.552407}, {lat:53.358796,lng:-2.272773}, //to uk
+              {lat:40.085148,lng:116.552407}, {lat:40.498275,lng:-3.567727}, //to spa
+            ],[
+              //ind
+              {lat:-6.127211,lng:106.653684}, {lat:1.364860,lng:103.991594}, //to sin
+            ],[
+              //usa
+              {lat:40.760284,lng:-73.772304}, {lat:53.358796,lng:-2.272773}, //to uk
+              {lat:40.760284,lng:-73.772304}, {lat:40.498275,lng:-3.567727}, //to spa
+            ],[  
+              //uk
+              {lat:53.358796,lng:-2.272773}, {lat:40.498275,lng:-3.567727}, //to spa
+            ],
           ];
+
           // Creates the polyline object
-          var polyline = new google.maps.Polyline({
-            map: map,
-            path: coordinates,
-            strokeColor: '#0000FF',
-            strokeOpacity: 0.7,
-            strokeWeight: 1,
-            geodesic: true
-          });
+          for(var i=0; i<coordinates.length; i++){
+            var polyline = new google.maps.Polyline({
+              map: map,
+              path: coordinates[i],
+              strokeColor: '#0000FF',
+              strokeOpacity: 0.7,
+              strokeWeight: 1,
+              geodesic: true
+            });
+          }
+
           // Fit the bounds of the generated points
           //map.fitBounds(latLngBounds);
           polyline.setMap(map);
