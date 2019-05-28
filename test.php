@@ -171,7 +171,7 @@ if (isset($_POST['search'])) {
         <button type="submit" name="search">Search</button>
       </form>
       <br>
-      <table>
+      <table class="table-bordered">
         <tr>
           <th>No.</th>
           <th>Pathway</th>
