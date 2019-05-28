@@ -1,8 +1,18 @@
+<?php
+if (isset($_POST['search'])) {
+    $from = $_POST['origin'];
+    $to = $_POST['dest'];
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Create a polyline using Geolocation and Google Maps API</title>
+    <title>Best Flight</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      
     <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyAGADiifvUELmMdOfy-UKlHPxNI6rrJUFE"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
@@ -118,40 +128,165 @@
         });
       });
     </script>
+    
     <style type="text/css">
       #map {
         width: 1250px;
-        height: 600px;
-        margin-top: 10px;
-        margin-left: 50px;
+        height: 550px;
+        left: 60px;
+        right: 50px;
+        top: 10px;
+        bottom: 0px;
+        position:relative;
       }
     </style>
   </head>
   <body>
-    <h1>Create a polyline</h1>
+    <h1 align="center">FSK Flight Recommendation System</h1>
     <div id="map"></div>
     <p id="error"></p>
-    <div class="container">
-      <form>
+    <div class="container" align="center">
+      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <label for="origin">Origin</label>
-        <select id="origin">
-          <option value="mas">Malaysia - Kuala Lumpur (KUL)</option>
+        <br>
+        <select id="origin" name="origin">
+          <option value="A">Malaysia - Kuala Lumpur (KUL)</option>
         </select>
         <br><br>
         <label for="dest">Destination</label>
-        <select id="dest">
-          <option value="kor">South Korea - Incheon (ICN)</option>
-          <option value="jpn">Japan - Osaka (ITM)</option>
-          <option value="aus">Australia - Melbourne (MEL)</option>
-          <option value="rus">Russia - Moscow (SVO)</option>
-          <option value="chi">China - Beijing (PEK)</option>
-          <option value="ind">Indonesia - Jakarta (CGK)</option>
-          <option value="sin">Singapore - Singapore (SIN)</option>
-          <option value="usa">United States of America - John F. Kennedy (JFK)</option>
-          <option value="uk">United Kingdoms - Manchester (MAN)</option>
-          <option value="spa">Spain - Madrid (MAD)</option>
+        <br>
+        <select id="dest" name="dest">
+          <option value="B">South Korea - Incheon (ICN)</option>
+          <option value="C">Japan - Osaka (ITM)</option>
+          <option value="D">Australia - Melbourne (MEL)</option>
+          <option value="E">Russia - Moscow (SVO)</option>
+          <option value="F">China - Beijing (PEK)</option>
+          <option value="G">Indonesia - Jakarta (CGK)</option>
+          <option value="H">Singapore - Singapore (SIN)</option>
+          <option value="I">United States of America - New York (JFK)</option>
+          <option value="J">United Kingdoms - Manchester (MAN)</option>
+          <option value="K">Spain - Madrid (MAD)</option>
         </select>
+        <br><br>
+        <button type="submit" name="search">Search</button>
       </form>
+      <br>
+      <p id="result"></p>
+      <script>
+        var graph = [
+            'AK11098','AF3200','AB4601','AC4975',
+            'AG1125','AH297','KF9227','KE3444',
+            'KJ1432','KI5775','FE5000','FJ8115',
+            'FB903','BE6598','BC862','CE7344',
+            'GD5204','GH9879','EJ2585','JI5376'
+        ];
+        
+        var parseEdge = (edge) => {
+            var [left, right, ...cost] = edge;
+            cost = parseInt(cost.join(''), 10);
+            return { left, right, cost };
+        };
+        
+        var addToMap = (map, origin, vertex, cost) => {
+            (map[origin] = map[origin] || [])
+            .push({ vertex, cost });
+        };
+        
+        var graphToMap = (graph) => {
+            var map = {};
+        
+            for (var edge of graph) {
+            var { left, right, cost } = parseEdge(edge);
+        
+            addToMap(map, left, right, cost);
+            addToMap(map, right, left, cost);
+            }
+        
+            return map;
+        };
+        
+        var tableToString = (table) => {
+            return Object.keys(table)
+            .map(vertex => {
+                var { vertex: from, cost } = table[vertex];
+                return `${vertex}: ${cost} via ${from}`;
+            })
+            .join('\n');
+        };
+        
+        var tracePath = (table, start, end) => {
+            var path = [];
+            var next = end;
+            while (true) {
+            path.unshift(next);
+            if (next === start) { break; }
+            next = table[next].vertex;
+            }
+        
+            return path;
+        };
+        
+        var run = (graph, start, end) => {
+            var map = graphToMap(graph);
+        
+            // console.log(map);
+            var visited = [];
+            var frontier = [start];
+            var table = { [start]: { vertex: start, cost: 0 } };
+        
+            var vertex;
+            while (vertex = frontier.shift()) {
+            // Explore unvisited neighbors
+            var neighbors = map[vertex]
+                .filter(n => !visited.includes(n.vertex));
+        
+            // Add neighbors to the frontier
+            frontier.push(...neighbors.map(n => n.vertex));
+        
+            var costToVertex = table[vertex].cost;
+        
+            for (let { vertex: to, cost } of neighbors) {
+                var currCostToNeighbor = table[to] && table[to].cost;
+                var newCostToNeighbor = costToVertex + cost;
+                if (currCostToNeighbor == undefined ||
+                    newCostToNeighbor < currCostToNeighbor) {
+                // Update the table
+                table[to] = { vertex, cost: newCostToNeighbor };
+                }
+            }
+        
+            visited.push(vertex);
+            }
+        
+            // console.log(table);
+        
+            console.log('Here you go:');
+            console.log(tableToString(table));
+        
+            var path1 = tracePath(table, start, end);
+            
+            for(var i=0; i<path1.length; i++){
+                switch(path1[i]){
+                    case 'A': path1[i] = 'KUL'; break;
+                    case 'B': path1[i] = 'ICN'; break;
+                    case 'C': path1[i] = 'ITM'; break;
+                    case 'D': path1[i] = 'MEL'; break;
+                    case 'E': path1[i] = 'SVO'; break;
+                    case 'F': path1[i] = 'PEK'; break;
+                    case 'G': path1[i] = 'CGK'; break;
+                    case 'H': path1[i] = 'SIN'; break;
+                    case 'I': path1[i] = 'JFK'; break;
+                    case 'J': path1[i] = 'MAN'; break;
+                    case 'K': path1[i] = 'MAD'; break;
+                }
+            };
+            if (path1.length > 0) {
+                document.getElementById("result").innerHTML = path1.join('->');
+            }
+            
+        };
+        run(graph, "<?php echo $from ?>", "<?php echo $to ?>");
+      </script>
     </div>
   </body>
 </html>
