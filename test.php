@@ -56,16 +56,15 @@
               //mas
               {lat:2.745537, lng:101.707316}, {lat:37.460353,lng:126.440674}, //to kor
               {lat:2.745537, lng:101.707316}, {lat:34.789594,lng:135.438084}, //to jpn
-              {lat:2.745537, lng:101.707316}, {lat:-37.665357,lng:144.840642}, //to aus
               {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //to chi
               {lat:2.745537, lng:101.707316}, {lat:-6.127211,lng:106.653684}, //to ind
               {lat:2.745537, lng:101.707316}, {lat:1.364860,lng:103.991594}, //to sin
               {lat:2.745537, lng:101.707316}, {lat:40.498275,lng:-3.567727}, //to spa
             ],[
               //kor
-              {lat:36.460353, lng:126.440674}, {lat:34.789594,lng:135.438084}, //to jpn
-              {lat:36.460353, lng:126.440674}, {lat:55.410343,lng:37.902312}, //to rus
-              {lat:36.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //to chi
+              {lat:37.460353, lng:126.440674}, {lat:34.789594,lng:135.438084}, //to jpn
+              {lat:37.460353, lng:126.440674}, {lat:55.410343,lng:37.902312}, //to rus
+              {lat:37.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //to chi
             ],[
               //jpn
               {lat:34.789594,lng:135.438084}, {lat:55.410343,lng:37.902312}, //to rus
@@ -107,7 +106,7 @@
           }
 
           // Fit the bounds of the generated points
-          //map.fitBounds(latLngBounds);
+          map.fitBounds(latLngBounds);
           polyline.setMap(map);
         },
         function(positionError){
@@ -132,5 +131,27 @@
     <h1>Create a polyline</h1>
     <div id="map"></div>
     <p id="error"></p>
+    <div class="container">
+      <form>
+        <label for="origin">Origin</label>
+        <select id="origin">
+          <option value="mas">Malaysia - Kuala Lumpur (KUL)</option>
+        </select>
+        <br><br>
+        <label for="dest">Destination</label>
+        <select id="dest">
+          <option value="kor">South Korea - Incheon (ICN)</option>
+          <option value="jpn">Japan - Osaka (ITM)</option>
+          <option value="aus">Australia - Melbourne (MEL)</option>
+          <option value="rus">Russia - Moscow (SVO)</option>
+          <option value="chi">China - Beijing (PEK)</option>
+          <option value="ind">Indonesia - Jakarta (CGK)</option>
+          <option value="sin">Singapore - Singapore (SIN)</option>
+          <option value="usa">United States of America - John F. Kennedy (JFK)</option>
+          <option value="uk">United Kingdoms - Manchester (MAN)</option>
+          <option value="spa">Spain - Madrid (MAD)</option>
+        </select>
+      </form>
+    </div>
   </body>
 </html>
