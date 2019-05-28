@@ -171,7 +171,16 @@ if (isset($_POST['search'])) {
         <button type="submit" name="search">Search</button>
       </form>
       <br>
-      <p id="result"></p>
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Pathway</th>
+        </tr>
+        <tr>
+          <th>1</th>
+          <th id="result"></th>
+        </tr>
+      </table>
       <script>
         var graph = [
             'AK11098','AF3200','AB4601','AC4975',
