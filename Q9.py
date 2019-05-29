@@ -1,7 +1,3 @@
-# posNum = [455, 510, 1222, 624, 433, 430, 679, 466, 1225, 728]
-# negNum = [70, 74, 157, 80, 77, 35, 121, 135, 235, 142]
-# neuNum = [1157, 1347, 2785, 1864, 1331, 995, 1733, 1385, 3742, 2024]
-
 city = ["Osaka", "Incheon", "Melbourne", "Moscow", "Beijing", "Jakarta", "Singapore", "NewYork", "Madrid", "Manchester"]
 #list with [{posNum, negNum, neuNum}]
 posNegNeu = [[455, 70, 1157], [510, 74, 1347], [1222, 157, 2785],
@@ -112,26 +108,3 @@ for cName in city:
         print("Conclusion: Negative Sentiment in " + str(cName))
     else:
         print("Conclusion: No Result in " + str(cName))
-
-
-
-#Backup
-# for cName in city:
-#     for i in range(len(posNegNeu)):
-#         if posNegNeu[int(i)][0] > posNegNeu[int(i)][1]:
-#             print(str(cName) + "Positive Sentiment")
-#         elif posNegNeu[int(i)][0] < posNegNeu[int(i)][1]:
-#             print(str(cName) + "Negative Sentiment")
-#         else:
-#             print(str(cName) + "Neither Positive or Negative")
-
-
-# bayerList[0].append(city.index(cName))
-
-
-# for cName in city:
-#     bayerList[city.index(cName)][0] = (posNegNeu[city.index(cName)][0] * 0.8)
-#     bayerList[city.index(cName)][1] = (posNegNeu[city.index(cName)][0] * 0.2)
-#     bayerList[city.index(cName)][2] = (posNegNeu[city.index(cName)][1] * 0.8)
-#     bayerList[city.index(cName)][3] = (posNegNeu[city.index(cName)][1] * 0.2)
-# print(bayerList)
