@@ -15,14 +15,23 @@ print("Approach 1: Positive or Negative Sentiment")
 print("Positive when Positive words > Negative words and vice versa")
 #Sentiment based on positive & negative word Count
 for cName in city:
-    if posNegNeu[city.index(cName)][0] > posNegNeu[city.index(cName)][1]:
-        print(str(cName) + " having Positive Sentiment")
+    print(cName)
+    posWordCount = posNegNeu[city.index(cName)][0]
+    negWordCount = posNegNeu[city.index(cName)][1]
+    if posWordCount > negWordCount:
+        print("Number of Positive Number: %d" % posWordCount)
+        print("Number of Negative Number: %d" % negWordCount)
+        print("Word Count: Positive Sentiment")
         app1List[city.index(cName)] = 1
-    elif posNegNeu[city.index(cName)][0] < posNegNeu[city.index(cName)][1]:
-        print(str(cName) + " having Negative Sentiment")
+    elif posWordCount < negWordCount:
+        print("Number of Positive Number: %d" % posWordCount)
+        print("Number of Negative Number: %d" % negWordCount)
+        print("Word Count: Negative Sentiment")
         app1List[city.index(cName)] = -1
     else:
-        print(str(cName) + " Neither Positive or Negative")
+        print("Number of Positive Number: %d" % posWordCount)
+        print("Number of Negative Number: %d" % negWordCount)
+        print("Word Count: Neither Positive or Negative")
         app1List[city.index(cName)] = 0
 
 
@@ -72,14 +81,23 @@ print()
 print("Approach 2: Positive or Negative Sentiment")
 print("Using Bayes' Theorem")
 for cName in city:
-    if (newBayList[city.index(cName)][0]/bayRowTotal[city.index(cName)]) > (newBayList[city.index(cName)][1]/bayRowTotal[city.index(cName)]):
-        print (cName + "->Bayes' Theorem: Positive sentiment")
+    print(cName)
+    posSen = (newBayList[city.index(cName)][0]/bayRowTotal[city.index(cName)])
+    negSen = (newBayList[city.index(cName)][1]/bayRowTotal[city.index(cName)])
+    if  posSen > negSen:
+        print("Probability of positive sentiment: %.3f" % posSen)
+        print("Probability of negative sentiment: %.3f" % negSen)
+        print ("Bayes' Theorem: Positive sentiment")
         app2List[city.index(cName)] = 1
-    elif (newBayList[city.index(cName)][0]/bayRowTotal[city.index(cName)]) < (newBayList[city.index(cName)][1]/bayRowTotal[city.index(cName)]):
-        print(cName + "-> Bayes' Theorem: Negative sentiment")
+    elif posSen < negSen:
+        print("Probability of positive sentiment: %.3f" % posSen)
+        print("Probability of negative sentiment: %.3f" % negSen)
+        print("Bayes' Theorem: Negative sentiment")
         app2List[city.index(cName)] = -1
     else:
-        print(cName + "-> Bayes' Theorem: Neither Positive or Negative sentiment")
+        print("Probability of positive sentiment: %.3f" % posSen)
+        print("Probability of negative sentiment: %.3f" % negSen)
+        print("Bayes' Theorem: Neither Positive or Negative sentiment")
         app2List[city.index(cName)] = 0
 
     # print(newBayList[city.index(cName)][0]/bayRowTotal[city.index(cName)])
@@ -89,11 +107,11 @@ for cName in city:
 print()
 for cName in city:
     if app1List[city.index(cName)] == 1 and app2List[city.index(cName)] == 1:
-        print("Conclusion: Positive Sentiment")
+        print("Conclusion: Positive Sentiment in " + str(cName))
     elif app1List[city.index(cName)] == -1 and app2List[city.index(cName)] == -1:
-        print("Conclusion: Negative Sentiment")
+        print("Conclusion: Negative Sentiment in " + str(cName))
     else:
-        print("Conclusion: No Result")
+        print("Conclusion: No Result in " + str(cName))
 
 
 
