@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Depth First Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>      
+</head>
+<body>
+<h1>Depth First Search</h1>
+<table class="table-bordered" align="center" >
+    <tr style="text-align: center">
+        <td>ROUTE(S)</td><td>COSTS</td><td>POLITICAL SENTIMENT</td>
+    </tr>
+    <tr>
+        <td><p id="result"></p></td><td>TBD</td><td>TBD</td>
+    </tr>
+</table>
+
+<script>
+    var Graph = (function () {
+        function Graph(vertices) {
+            if (this.v === undefined)
+                this.v = 0;
+            if (this.adjList === undefined)
+                this.adjList = null;
+            this.v = vertices;
+            this.initAdjList();
+        }
+        Graph.prototype.initAdjList = function () {
+            this.adjList = (function (s) { 
+                var a = []; 
+                while (s-- > 0)
+                    a.push(null); 
+                    return a; 
+            })(this.v);
+            for (var i = 0; i < this.v; i++) {
+                    this.adjList[i] = ([]);
+            }
+        };
+        Graph.prototype.addEdge = function (u, v) {
+            (this.adjList[u].push(v) > 0);
+        };
+        Graph.prototype.printAllPaths = function (s, d) {
+            var isVisited = (function (s) { 
+                var a = []; 
+                while (s-- > 0)
+                    a.push(false); 
+                    return a; 
+            })(this.v);
+            var pathList = ([]);
+            (pathList.push(s) > 0);
+            this.printAllPathsUtil(s, d, isVisited, pathList);
+        };
+        Graph.prototype.printAllPathsUtil = function (u, d, isVisited, localPathList) {
+            isVisited[u] = true;
+            if ((function (o1, o2) { 
+                if (o1 && o1.equals) {
+                    return o1.equals(o2);
+                } else {
+                    return o1 === o2;
+                } 
+            })(u, d)) {
+                document.getElementById("result").innerHTML += ("<br/>");
+                for(var i=0;i<localPathList.length;i++){
+                    switch(localPathList[i]){
+                        case 0: document.getElementById("result").innerHTML += 'KUL';
+                        break;
+                        case 1: document.getElementById("result").innerHTML += 'ICN';
+                        break;
+                        case 2: document.getElementById("result").innerHTML += 'ITM';
+                        break;
+                        case 3: document.getElementById("result").innerHTML += 'MEL';
+                        break;
+                        case 4: document.getElementById("result").innerHTML += 'SVO';
+                        break;
+                        case 5: document.getElementById("result").innerHTML += 'PEK';
+                        break;
+                        case 6: document.getElementById("result").innerHTML += 'CGK';
+                        break;
+                        case 7: document.getElementById("result").innerHTML += 'SIN';
+                        break;
+                        case 8: document.getElementById("result").innerHTML += 'JFK';
+                        break;
+                        case 9: document.getElementById("result").innerHTML += 'MAN';
+                        break;
+                        case 10: document.getElementById("result").innerHTML += 'MAD';
+                        break;
+                    }
+                    if(i!=localPathList.length-1){
+                        document.getElementById("result").innerHTML += '->';
+                    }
+                }
+                document.getElementById("result").innerHTML += ("<br/>");
+
+                console.info(localPathList);
+                isVisited[u] = false;
+                return;
+            }
+            {
+                var array3452 = this.adjList[u];
+                var _loop_1 = function (index3451) {
+                    var i = array3452[index3451];
+                    {
+                        if (!isVisited[i]) {
+                            (localPathList.push(i) > 0);
+                            this_1.printAllPathsUtil(i, d, isVisited, localPathList);
+                            (function (a) { 
+                                var index = a.indexOf(i); 
+                                if (index >= 0) {
+                                    a.splice(index, 1);
+                                    return true;
+                            }
+                            else {
+                                return false;
+                            } })(localPathList);
+                        }
+                    }
+                };
+                var this_1 = this;
+                for (var index3451 = 0; index3451 < array3452.length; index3451++) {
+                    _loop_1(index3451);
+                }
+            }
+            isVisited[u] = false;
+        };
+        Graph.main = function (args) {
+            var g = new Graph(11);
+            g.addEdge(0, 10);
+            g.addEdge(0, 5);
+            g.addEdge(0, 1);
+            g.addEdge(0, 2);
+            g.addEdge(0, 6);
+            g.addEdge(0, 7);
+            g.addEdge(10, 5);
+            g.addEdge(10, 4);
+            g.addEdge(10, 9);
+            g.addEdge(10, 8);
+            g.addEdge(5, 4);
+            g.addEdge(5, 9);
+            g.addEdge(5, 1);
+            g.addEdge(1, 4);
+            g.addEdge(1, 2);
+            g.addEdge(2, 4);
+            g.addEdge(6, 3);
+            g.addEdge(6, 7);
+            g.addEdge(4, 9);
+            g.addEdge(9, 8);
+            var s = 0;
+            var d = 8;
+            console.info("Following are all different paths from " + s + " to " + d);
+            g.printAllPaths(s, d);
+        };
+        return Graph;
+    }());
+    Graph["__class"] = "Graph";
+    Graph.main(null);
+</script>
+</body>
+</html>
