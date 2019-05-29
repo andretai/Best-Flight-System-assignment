@@ -106,8 +106,12 @@ print()
 for cName in city:
     print(cName)
     if app1List[city.index(cName)] == 1 and app2List[city.index(cName)] == 1:
+        print("Word Count: Positive Sentiment")
+        print("Bayes Theorem: Positive Sentiment")
         print("Conclusion: Positive Sentiment")
     elif app1List[city.index(cName)] == -1 and app2List[city.index(cName)] == -1:
+        print("Word Count: Negative Sentiment")
+        print("Bayes Theorem: Negative Sentiment")
         print("Conclusion: Negative Sentiment")
     else:
         print("Conclusion: No Result")
