@@ -193,6 +193,8 @@ if (isset($_POST['search'])) {
           
 
         });
+        </script>
+        <script>
       
         var graph = [
             'AK11098','AF3200','AB4601','AC4975',
@@ -285,28 +287,173 @@ if (isset($_POST['search'])) {
             console.log('Here you go:');
             console.log(tableToString(table));
         
-            var path = tracePath(table, start, end);
+            var path1 = tracePath(table, start, end);
             
-            for(var i=0; i<path.length; i++){
-                switch(path[i]){
-                    case 'A': path[i] = 'KUL'; break;
-                    case 'B': path[i] = 'ICN'; break;
-                    case 'C': path[i] = 'ITM'; break;
-                    case 'D': path[i] = 'MEL'; break;
-                    case 'E': path[i] = 'SVO'; break;
-                    case 'F': path[i] = 'PEK'; break;
-                    case 'G': path[i] = 'CGK'; break;
-                    case 'H': path[i] = 'SIN'; break;
-                    case 'I': path[i] = 'JFK'; break;
-                    case 'J': path[i] = 'MAN'; break;
-                    case 'K': path[i] = 'MAD'; break;
+            for(var i=0; i<path1.length; i++){
+                switch(path1[i]){
+                    case 'A': path1[i] = 'KUL'; break;
+                    case 'B': path1[i] = 'ICN'; break;
+                    case 'C': path1[i] = 'ITM'; break;
+                    case 'D': path1[i] = 'MEL'; break;
+                    case 'E': path1[i] = 'SVO'; break;
+                    case 'F': path1[i] = 'PEK'; break;
+                    case 'G': path1[i] = 'CGK'; break;
+                    case 'H': path1[i] = 'SIN'; break;
+                    case 'I': path1[i] = 'JFK'; break;
+                    case 'J': path1[i] = 'MAN'; break;
+                    case 'K': path1[i] = 'MAD'; break;
                 }
             };
-            if (path.length > 0) {
-                document.getElementById("result").innerHTML = path.join('->');
-                document.getElementById("cost").innerHTML = costToVertex;
+            if (path1.length > 0) {
+                document.getElementById("result").innerHTML = path1.join('->');
+                $(document).ready(function() {
+                // If the browser supports the Geolocation API
+                if (typeof navigator.geolocation == "undefined") {
+                  $("#error").text("Your browser doesn't support the Geolocation API");
+                  return;
+                }
+                // Save the positions' history
+                var path = [];
+
+                navigator.geolocation.watchPosition(function(position) {
+                  // Save the current position
+                  path.push(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+
+                  // Create the map
+                  var myOptions = {
+                    zoom : 3,
+                    center : path[0],
+                    mapTypeId : google.maps.MapTypeId.ROADMAP
+                  }
+
+                  var cities_coordinates = [
+                    [2.745537,101.707316],[37.460353, 126.440674],[34.789594, 135.438084],
+                    [-37.665357, 144.840642],[55.410343, 37.902312],[40.085148, 116.552407],
+                    [-6.127211, 106.653684],[1.364860, 103.991594],[40.760284, -73.772304],
+                    [53.358796, -2.272773],[40.498275, -3.567727],
+                  ];
+
+
+                  var map = new google.maps.Map(document.getElementById("map"), myOptions);
+                  for(var i=0;i<path1.length;i++){
+                    switch(path1[i]){
+                      case 'KUL': path.push(new google.maps.LatLng(2.745537, 101.707316)); break;
+                      case 'ICN': path.push(new google.maps.LatLng(37.460353, 126.440674)); break;
+                      case 'ITM': path.push(new google.maps.LatLng(34.789594, 135.438084)); break;
+                      case 'MEL': path.push(new google.maps.LatLng(-37.665357, 144.840642)); break;
+                      case 'SVO': path.push(new google.maps.LatLng(55.410343, 37.902312)); break;
+                      case 'PEK': path.push(new google.maps.LatLng(40.085148, 116.552407)); break;
+                      case 'CGK': path.push(new google.maps.LatLng(-6.127211, 106.653684)); break;
+                      case 'SIN': path.push(new google.maps.LatLng(1.364860, 103.991594)); break;
+                      case 'JFK': path.push(new google.maps.LatLng(40.760284, -73.772304)); break;
+                      case 'MAN': path.push(new google.maps.LatLng(53.358796, -2.272773)); break;
+                      case 'MAD': path.push(new google.maps.LatLng(40.498275, -3.567727)); break;
+                  }
+                }
+                  // Create the array that will be used to fit the view to the points range and
+                  // place the markers to the polyline's points
+                  var latLngBounds = new google.maps.LatLngBounds();
+                  for(var i = 0; i < path.length; i++) {
+                    latLngBounds.extend(path[i]);
+                    // Place the marker
+                    new google.maps.Marker({
+                      map: map,
+                      position: path[i],
+                      title: "Point " + (i + 1)
+                    });
+                  }
+
+                  var coordinates = [];
+
+                  switch(path1[path1.length-1]) {
+                    case 'ICN':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //kul->pek
+                          {lat:37.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //pek->icn
+                        ];
+                      break;
+                    case 'ITM':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //kul->pek
+                          {lat:37.460353, lng:126.440674}, {lat:40.085148,lng:116.552407}, //pek->icn
+                          {lat:37.460353, lng:126.440674}, {lat:34.789594,lng:135.438084}, //icn->itm
+                        ];
+                      break;
+                    case 'MEL':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:-6.127211,lng:106.653684}, //kul->cgk
+                          {lat:-37.665357,lng:144.840642}, {lat:-6.127211,lng:106.653684}, //cgk->mel
+                        ];
+                      break;
+                    case 'SVO':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //kul->pek
+                          {lat:55.410343,lng:37.902312}, {lat:40.085148,lng:116.552407}, //pek->svo
+                        ];
+                      break;
+                    case 'PEK':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //kul->pek
+                        ];
+                      break;
+                    case 'CGK':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:-6.127211,lng:106.653684}, //kul->cgk
+                        ];
+                      break;
+                    case 'SIN':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:1.364860,lng:103.991594}, //kul->sin
+                        ];
+                      break;
+                    case 'JFK':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //kul->pek
+                          {lat:55.410343,lng:37.902312}, {lat:40.085148,lng:116.552407}, //pek->svo
+                          {lat:55.410343,lng:37.902312}, {lat:53.358796,lng:-2.272773}, //svo->man
+                          {lat:40.760284,lng:-73.772304}, {lat:53.358796,lng:-2.272773}, //man->jfk
+                        ];
+                      break;
+                    case 'MAN':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.085148,lng:116.552407}, //kul->pek
+                          {lat:55.410343,lng:37.902312}, {lat:40.085148,lng:116.552407}, //pek->svo
+                          {lat:55.410343,lng:37.902312}, {lat:53.358796,lng:-2.272773}, //svo->man
+                        ];
+                      break;
+                    case 'MAD':  
+                        coordinates = [
+                          {lat:2.745537, lng:101.707316}, {lat:40.498275,lng:-3.567727}, //kul->mad
+                        ];
+                      break;
+                  }
+
+                  // Creates the polyline object
+                  for(var i=0; i<coordinates.length; i++){
+                    var polyline = new google.maps.Polyline({
+                      map: map,
+                      path: coordinates,
+                      strokeColor: '#0000FF',
+                      strokeOpacity: 0.7,
+                      strokeWeight: 1,
+                      geodesic: true
+                    });
+                  }
+
+                  // Fit the bounds of the generated points
+                  map.fitBounds(latLngBounds);
+                  polyline.setMap(map);
+                },
+                function(positionError){
+                  $("#error").append("Error: " + positionError.message + "<br />");
+                },
+                {
+                  enableHighAccuracy: true,
+                  timeout: 10 * 1000 // 10 seconds
+                });
+
+              });
             } 
-            
         };
         run(graph, "<?php echo $from ?>", "<?php echo $to ?>");
       </script>
