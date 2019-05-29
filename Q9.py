@@ -51,7 +51,7 @@ bayerList = [[None for _ in range(4)] for _ in range(10)]
 app2List = [[None for _ in range(1)] for _ in range(10)]
 
 #Creating a Bayer List
-#format: [[(A and B), (A and B'), (A' and B), (A' and B')], [(A and B), (A and B'), (A' and B), (A' and B')], ...] following country sequence
+#bayerList = [[(A and B), (A and B'), (A' and B), (A' and B')], [(A and B), (A and B'), (A' and B), (A' and B')], ...] following country sequence
 for cName in city:
     bayerList[city.index(cName)][0] = int(round(posNegNeu[city.index(cName)][0] * 0.8))
     bayerList[city.index(cName)][1] = posNegNeu[city.index(cName)][0] - bayerList[city.index(cName)][0]
@@ -59,7 +59,7 @@ for cName in city:
     bayerList[city.index(cName)][3] = posNegNeu[city.index(cName)][1] - bayerList[city.index(cName)][2]
 #print(bayerList)
 
-#new BayerList = [[+ve words|+ve news, +ve words|-ve news], [+ve words|+ve news, +ve words|-ve news], ......]
+#new BayerList = [[+ve news, -ve news], [+ve news, -ve news], ......]
 newBayList = [[None for _ in range(2)] for _ in range(10)]
 for cName in city:
     newBayList[city.index(cName)][0] = bayerList[city.index(cName)][0] + bayerList[city.index(cName)][3]
