@@ -51,6 +51,12 @@ bayerList = [[None for _ in range(4)] for _ in range(10)]
 #Keep result from approach 2
 app2List = [[None for _ in range(1)] for _ in range(10)]
 
+#Creating list to store probability of +ve and -ve news
+#pnNewsProb = [[+ve newa prob, -ve news prob], [+ve newa prob, -ve news prob], ..........]
+pnNewsProb = [[None for _ in range(2)] for _ in range(10)]
+
+
+
 #Creating a Bayer List
 #bayerList = [[(A and B), (A and B'), (A' and B), (A' and B')], [(A and B), (A and B'), (A' and B), (A' and B')], ...] following country sequence
 for cName in city:
@@ -66,7 +72,7 @@ for cName in city:
     newBayList[city.index(cName)][0] = bayerList[city.index(cName)][0] + bayerList[city.index(cName)][3]
     newBayList[city.index(cName)][1] = bayerList[city.index(cName)][1] + bayerList[city.index(cName)][2]
 
-#print(newBayList)
+print(newBayList)
 
 #bayTotalRow = [(+ve news + -ve news), (+ve news + -ve news), ....]
 bayRowTotal = [[None for _ in range(1)] for _ in range(10)]
@@ -84,16 +90,23 @@ for cName in city:
     posSen = (newBayList[city.index(cName)][0]/bayRowTotal[city.index(cName)])
     negSen = (newBayList[city.index(cName)][1]/bayRowTotal[city.index(cName)])
     if  posSen > negSen:
+        #Storing value to pnNewsProb list
+        pnNewsProb[city.index(cName)][0] = "{0:.3f}".format(posSen)
+        pnNewsProb[city.index(cName)][1] = "{0:.3f}".format(negSen)
         print("Probability of positive sentiment: %.3f" % posSen)
         print("Probability of negative sentiment: %.3f" % negSen)
         print ("Bayes' Theorem: Positive sentiment")
         app2List[city.index(cName)] = 1
     elif posSen < negSen:
+        pnNewsProb[city.index(cName)][0] = "{0:.3f}".format(posSen)
+        pnNewsProb[city.index(cName)][1] = "{0:.3f}".format(negSen)
         print("Probability of positive sentiment: %.3f" % posSen)
         print("Probability of negative sentiment: %.3f" % negSen)
         print("Bayes' Theorem: Negative sentiment")
         app2List[city.index(cName)] = -1
     else:
+        pnNewsProb[city.index(cName)][0] = "{0:.3f}".format(posSen)
+        pnNewsProb[city.index(cName)][1] = "{0:.3f}".format(negSen)
         print("Probability of positive sentiment: %.3f" % posSen)
         print("Probability of negative sentiment: %.3f" % negSen)
         print("Bayes' Theorem: Neither Positive or Negative sentiment")
@@ -116,3 +129,5 @@ for cName in city:
     else:
         print("Conclusion: No Result")
     print()
+
+#print(pnNewsProb)
