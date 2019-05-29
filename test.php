@@ -218,7 +218,7 @@ if (isset($_POST['search'])) {
         
             for (var edge of graph) {
               var { left, right, cost } = parseEdge(edge);
-              a += cost;
+
               addToMap(map, left, right, cost);
               addToMap(map, right, left, cost);
             }
@@ -272,11 +272,11 @@ if (isset($_POST['search'])) {
                 var newCostToNeighbor = costToVertex + cost;
                 if (currCostToNeighbor == undefined ||
                     newCostToNeighbor < currCostToNeighbor) {
-                // Update the table
-                table[to] = { vertex, cost: newCostToNeighbor };
+                    // Update the table
+                    table[to] = { vertex, cost: newCostToNeighbor };
                 }
             }
-        
+            
             visited.push(vertex);
             }
         
