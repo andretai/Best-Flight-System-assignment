@@ -69,7 +69,7 @@ if (isset($_POST['search'])) {
           <th id="result"></th>
         </tr>
       </table>
-      
+      <p id="cost"></p>
       <script>
         $(document).ready(function() {
           // If the browser supports the Geolocation API
@@ -217,10 +217,10 @@ if (isset($_POST['search'])) {
             var map = {};
         
             for (var edge of graph) {
-            var { left, right, cost } = parseEdge(edge);
-        
-            addToMap(map, left, right, cost);
-            addToMap(map, right, left, cost);
+              var { left, right, cost } = parseEdge(edge);
+              a += cost;
+              addToMap(map, left, right, cost);
+              addToMap(map, right, left, cost);
             }
         
             return map;
@@ -239,18 +239,19 @@ if (isset($_POST['search'])) {
             var path = [];
             var next = end;
             while (true) {
-            path.unshift(next);
-            if (next === start) { break; }
-            next = table[next].vertex;
+              path.unshift(next);
+              if (next === start) { 
+                break; 
+              }
+              next = table[next].vertex;
             }
-        
             return path;
         };
         
         var run = (graph, start, end) => {
             var map = graphToMap(graph);
         
-            // console.log(map);
+            console.log(map);
             var visited = [];
             var frontier = [start];
             var table = { [start]: { vertex: start, cost: 0 } };
@@ -279,30 +280,31 @@ if (isset($_POST['search'])) {
             visited.push(vertex);
             }
         
-            // console.log(table);
+            console.log(table);
         
             console.log('Here you go:');
             console.log(tableToString(table));
         
-            var path1 = tracePath(table, start, end);
+            var path = tracePath(table, start, end);
             
-            for(var i=0; i<path1.length; i++){
-                switch(path1[i]){
-                    case 'A': path1[i] = 'KUL'; break;
-                    case 'B': path1[i] = 'ICN'; break;
-                    case 'C': path1[i] = 'ITM'; break;
-                    case 'D': path1[i] = 'MEL'; break;
-                    case 'E': path1[i] = 'SVO'; break;
-                    case 'F': path1[i] = 'PEK'; break;
-                    case 'G': path1[i] = 'CGK'; break;
-                    case 'H': path1[i] = 'SIN'; break;
-                    case 'I': path1[i] = 'JFK'; break;
-                    case 'J': path1[i] = 'MAN'; break;
-                    case 'K': path1[i] = 'MAD'; break;
+            for(var i=0; i<path.length; i++){
+                switch(path[i]){
+                    case 'A': path[i] = 'KUL'; break;
+                    case 'B': path[i] = 'ICN'; break;
+                    case 'C': path[i] = 'ITM'; break;
+                    case 'D': path[i] = 'MEL'; break;
+                    case 'E': path[i] = 'SVO'; break;
+                    case 'F': path[i] = 'PEK'; break;
+                    case 'G': path[i] = 'CGK'; break;
+                    case 'H': path[i] = 'SIN'; break;
+                    case 'I': path[i] = 'JFK'; break;
+                    case 'J': path[i] = 'MAN'; break;
+                    case 'K': path[i] = 'MAD'; break;
                 }
             };
-            if (path1.length > 0) {
-                document.getElementById("result").innerHTML = path1.join('->');
+            if (path.length > 0) {
+                document.getElementById("result").innerHTML = path.join('->');
+                document.getElementById("cost").innerHTML = costToVertex;
             } 
             
         };
