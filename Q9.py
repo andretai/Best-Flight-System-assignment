@@ -98,8 +98,6 @@ for cName in city:
         print("Bayes' Theorem: Neither Positive or Negative sentiment")
         app2List[city.index(cName)] = 0
 
-    # print(newBayList[city.index(cName)][0]/bayRowTotal[city.index(cName)])
-    # print(newBayList[city.index(cName)][1]/bayRowTotal[city.index(cName)])
 
 #Conclusion
 print()
