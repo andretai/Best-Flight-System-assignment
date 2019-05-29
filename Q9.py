@@ -1,14 +1,16 @@
 city = ["Osaka", "Incheon", "Melbourne", "Moscow", "Beijing", "Jakarta", "Singapore", "NewYork", "Madrid", "Manchester"]
+
 #list with [{posNum, negNum, neuNum}]
 posNegNeu = [[455, 70, 1157], [510, 74, 1347], [1222, 157, 2785],
              [624, 80, 1864], [433, 77, 1331], [430, 35, 995], [679, 121, 1733],
              [466, 135, 1385], [1225, 235, 3742], [728, 142, 2024]]
+
 #***************************Approach 1****************************************
 #Keep result from approach 1
 app1List = [[None for _ in range(1)] for _ in range(10)]
-
 print("Approach 1: Positive or Negative Sentiment")
 print("Positive when Positive words > Negative words and vice versa")
+
 #Sentiment based on positive & negative word Count
 for cName in city:
     print(cName)
@@ -45,7 +47,7 @@ Assuming that P(A and B) = 0.8 and P(A' and B') = 0.8
 #bayerList = [[]*(n-1)]*n -> n*n list
 bayerList = [[None for _ in range(4)] for _ in range(10)]
 
-#Keep result from approach 1
+#Keep result from approach 2
 app2List = [[None for _ in range(1)] for _ in range(10)]
 
 #Creating a Bayer List
