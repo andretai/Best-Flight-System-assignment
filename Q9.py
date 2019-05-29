@@ -67,7 +67,7 @@ for cName in city:
 
 #print(newBayList)
 
-#bayTotalRow = [+ve news, +ve news, ....]
+#bayTotalRow = [total[0], total[1], ....]
 bayRowTotal = [[None for _ in range(1)] for _ in range(10)]
 
 for cName in city:
