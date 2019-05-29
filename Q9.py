@@ -31,6 +31,7 @@ for cName in city:
         print("Number of Negative Number: %d" % negWordCount)
         print("Word Count: Neither Positive or Negative")
         app1List[city.index(cName)] = 0
+    print()
 
 
 
@@ -97,14 +98,17 @@ for cName in city:
         print("Probability of negative sentiment: %.3f" % negSen)
         print("Bayes' Theorem: Neither Positive or Negative sentiment")
         app2List[city.index(cName)] = 0
+    print()
 
 
 #Conclusion
 print()
 for cName in city:
+    print(cName)
     if app1List[city.index(cName)] == 1 and app2List[city.index(cName)] == 1:
-        print("Conclusion: Positive Sentiment in " + str(cName))
+        print("Conclusion: Positive Sentiment")
     elif app1List[city.index(cName)] == -1 and app2List[city.index(cName)] == -1:
-        print("Conclusion: Negative Sentiment in " + str(cName))
+        print("Conclusion: Negative Sentiment")
     else:
-        print("Conclusion: No Result in " + str(cName))
+        print("Conclusion: No Result")
+    print()
