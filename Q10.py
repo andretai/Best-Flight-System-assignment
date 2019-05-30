@@ -7,7 +7,7 @@ totalPosProb = 0
 totalNegProb = 0
 totalRouteDist = 0
 invTotalDist = 0
-invSumPosBay = 0
+sumPosBay = 0
 
 #Create a list to store the probability of using a route
 routeProb = [[None for _ in range(1)] for _ in range(10)]
@@ -26,14 +26,14 @@ for cName in city:
     invTotalDist += 1/bestRouteDist[city.index(cName)]
 
     # Total positive probability choosing a route (inverse)
-    invSumPosBay += 1/pnNewsProb[city.index(cName)][0]
+    sumPosBay += 1/pnNewsProb[city.index(cName)][0]
 
 
 for cName in city:
     routeProb[city.index(cName)] = (1 / bestRouteDist[city.index(cName)]) / (invTotalDist)
 
 for cName in city:
-    bayProb[city.index(cName)] = (1 / pnNewsProb[city.index(cName)][0]) / invSumPosBay
+    bayProb[city.index(cName)] = (pnNewsProb[city.index(cName)][0]) / sumPosBay
 
 
 # print(totalPosProb)
@@ -44,10 +44,10 @@ for cName in city:
 
 
 #Printing route prob list
-print(routeProb)
+#print(routeProb)
 
 #Printing country selection list
-print(bayProb)
+#print(bayProb)
 
 
 
